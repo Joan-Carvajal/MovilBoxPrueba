@@ -13,12 +13,16 @@
 <body class="bg-gray-100">
 
 
-    <div  class="container bg-white  mx-auto h-[28rem] w-full my-8 rounded-lg overflow-hidden space-y-4">
+    <div  class="container bg-white  mx-auto h-[32rem] w-full my-8 rounded-lg overflow-hidden space-y-4">
     <h1 class="text-lg text-center">Local</h1>
     <p class="w-full py-4 bg-slate-100 mt-8  text-center">http://0.0.0.0:8080/api/users/ </p>
     <p class="w-full py-4 bg-slate-100 mb-8 text-center">http://0.0.0.0:8080/api/profiles/</p>
      <h1 class="text-lg text-center">Server</h1>
+    <p class="w-full py-4 bg-slate-100 mt-8  text-center"> Get: https://movilboxprueba-production.up.railway.app/profiles/ </p>
+
     <p class="w-full py-4 bg-slate-100 mt-8  text-center"> Get: https://movilboxprueba-production.up.railway.app/api/users/ </p>
+    <p class="w-full py-4 bg-slate-100 mt-8  text-center"> Get/show: https://movilboxprueba-production.up.railway.app/api/users/20 </p>
+
     <p class="w-full py-4 bg-slate-100 text-center"> POST: https://movilboxprueba-production.up.railway.app/api/users</p>
     <p class="w-full py-4 bg-slate-100 text-center"> PUT/PACTH: https://movilboxprueba-production.up.railway.app/api/users/21</p>
 
