@@ -9,6 +9,7 @@ use App\Http\Resources\UserResource;
 use App\Http\Resources\UserCollection;
 
 use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 
 class UserController extends Controller
 {
@@ -31,9 +32,9 @@ class UserController extends Controller
     public function store(StoreUserRequest $request, User $user)
     {
 
-        $user->name = $request->input('name');
-        $user->email = $request->input('email');
-        $user->profile_id = $request->input('profile_id');
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->profile_id = $request->profile_id;
         $user->state = 1;
 
         $respuesta = $user->save();
@@ -41,12 +42,16 @@ class UserController extends Controller
         if ($respuesta) {
             return response()->json([
                 'status' => true,
+                'error'=>'',
                 'message' => 'User create succesfully',
                 'respuesta' => $respuesta
             ], 201);
         }
-        $this->setStatusCode(500);
-    return $this->responseWithError("Store failed.");
+        return response()->json([
+            'status' => false,
+            'error' => 'Error to created User',
+
+        ], 500);
 
     }
 
@@ -68,17 +73,20 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(UpdateUserRequest $request, User $user)
     {
-       $respuesta= $user->update($request->all());
 
-        if ($respuesta) {
-            return response()->json([
+
+       $user->update($request->all());
+
+
+ return response()->json([
                 'status' => true,
+                'error'=>'',
                 'message' => 'User updated succesfully',
-                'respuesta' => $respuesta
+                'user' => $user
             ], 200);
-        }
+
 
     }
 
